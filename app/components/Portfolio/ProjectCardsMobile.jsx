@@ -16,51 +16,15 @@ const ProjectCardsMobile = () => {
     purple: 'shadow-purple-200',
   };
 
-  const containerRef = useRef(null);
-  const [showArrow, setShowArrow] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const { scrollLeft, scrollWidth, clientWidth } =
-        containerRef.current;
-      const isPastThreeFourth =
-        scrollLeft + clientWidth >= scrollWidth * 0.80;
-      setShowArrow(!isPastThreeFourth);
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener(
-          'scroll',
-          handleScroll
-        );
-      }
-    };
-  }, []);
+  
+  
 
   return (
     <div
       ref={containerRef}
       className="flex flex-row gap-6 px-4 items-center  overflow-x-auto w-full h-[90vh]  scrollbar-hide "
     >
-      {showArrow && (
-        <motion.div
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 z-1 flex flex-col items-center"
-          animate={{ x: [0, -10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <ChevronLeft className="w-8 h-8 text-white animate-pulse" />
-          <span className="text-xs text-white mt-1">
-            Swipe
-          </span>
-        </motion.div>
-      )}
+      
       {projects.map((project, index) => (
         <div
           key={project.id}
