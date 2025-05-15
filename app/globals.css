@@ -1,0 +1,221 @@
+@import url('https://fonts.cdnfonts.com/css/samsungone');
+@import 'tailwindcss';
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-samsung: 'SamsungOne', sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+.font-samsung {
+  font-family: var(--font-samsung);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@theme {
+  --gradient-radial: radial-gradient(
+    var(--tw-gradient-stops)
+  );
+  --gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+}
+
+body {
+  /* background: var(--background); */
+  /* color: var(--foreground); */
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+@media (max-width: 376px) {
+  .text-xs-3xl {
+    font-size: 25px; /* same as text-3xl in Tailwind */
+    line-height: 2.25rem;
+  }
+}
+
+.gradient-anim {
+  animation: gradient 10s ease infinite;
+  background: linear-gradient(
+    25deg,
+    #dbff58,
+    #000000,
+    #e1fdf8,
+    #000000
+  );
+  background-size: 400% 400%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-anim2 {
+  animation: gradient3 30s ease infinite;
+  background: linear-gradient(
+    115deg,
+    black,
+    white,
+    black,
+    white,
+    rgb(140, 48, 245),
+    white,
+    rgb(250, 131, 62),
+    rgb(255, 142, 208),
+    white,
+    rgb(91, 0, 177)
+  );
+  background-size: 400% 400%;
+
+  /* background: linear-gradient(55deg,rgb(231, 235, 4),#ffffff,#000000,rgb(18, 177, 3)); */
+}
+
+@keyframes gradient2 {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-anim3 {
+  animation: gradient3 30s ease infinite;
+  background: linear-gradient(
+    115deg,
+    black,
+    white,
+    black,
+    white,
+    rgb(201, 39, 39),
+    white,
+    rgb(62, 250, 250),
+    rgb(255, 142, 208),
+    white,
+    rgb(91, 0, 177)
+  );
+  background-size: 400% 400%;
+}
+
+@keyframes gradient3 {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.gradient-anim4 {
+  animation: gradient4 30s ease infinite;
+  background: linear-gradient(
+    115deg,
+    black,
+    white,
+    black,
+    white,
+    rgb(255, 209, 57),
+    white,
+    rgb(255, 111, 224),
+    rgb(38, 0, 255),
+    white
+  );
+  background-size: 400% 400%;
+}
+
+@keyframes gradient4 {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.gradient-anim5 {
+  animation: gradient5 30s ease infinite;
+  background: linear-gradient(
+    115deg,
+    black,
+    white,
+    black,
+    white,
+    rgb(28, 9, 134),
+    white,
+    rgb(111, 255, 142),
+    rgb(38, 0, 255),
+    white
+  );
+  background-size: 400% 400%;
+}
+
+@keyframes gradient5 {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.gradient-text {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    #ec4310 0%,
+    #ffffff 50%,
+    #c0c0c0 100%
+  );
+  background-size: 100% auto;
+  background-position: 0% center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 50% center;
+  }
+}
