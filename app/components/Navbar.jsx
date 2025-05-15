@@ -106,7 +106,7 @@ const Navbar = () => {
       <div className="md:hidden">
         {/* Menu Button */}
         <button
-          className="w-10 h-8 flex flex-col justify-between z-61 relative cursor-pointer"
+          className="w-10 h-8 flex flex-col justify-between z-9999 relative cursor-pointer"
           onClick={() => setOpen((prev) => !prev)}
         >
           <motion.div
@@ -132,7 +132,7 @@ const Navbar = () => {
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="fixed top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-50"
+            className="fixed top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-[999]"
           >
             {NavLinksData.map((link) => (
               <motion.div

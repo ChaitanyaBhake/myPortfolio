@@ -4,10 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import BlobAnimation from '../BlobAnimation/BlobAnimation';
 
-const HaveAProject = () => {
+const HaveAProject = ({isMobile}) => {
   return (
     <div className="relative w-screen h-screen flex flex-col gap-16 items-center justify-center text-center z-9">
-      <div className="absolute inset-0 ">
+      <div className={`absolute inset-0  ${isMobile ? "hidden":"block"}`}>
         <BlobAnimation />
       </div>
 

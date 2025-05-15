@@ -18,7 +18,7 @@ const Skills = ({ skillRef, isSkillRefInView }) => {
 
   return (
     <div
-      className="z-50 flex flex-col gap-12 justify-center"
+      className="flex flex-col gap-12 justify-center"
       ref={skillRef}
     >
       {/* Skill Title */}
