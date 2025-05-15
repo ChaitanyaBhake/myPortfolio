@@ -21,7 +21,7 @@ const ProjectCardsMobile = () => {
 
   return (
     <div
-      ref={containerRef}
+      
       className="flex flex-row gap-6 px-4 items-center  overflow-x-auto w-full h-[90vh]  scrollbar-hide "
     >
       
