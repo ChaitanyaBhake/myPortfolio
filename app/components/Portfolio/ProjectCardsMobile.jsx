@@ -1,28 +1,39 @@
 'use client';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import BlobAnimation from '../BlobAnimation/BlobAnimation';
 import { projects } from '@/app/constant/data';
 
 const ProjectCardsMobile = () => {
-  const [loadingVideoId, setLoadingVideoId] =
-    useState(null);
+  const [loadingVideoIds, setLoadingVideoIds] = useState(
+    []
+  );
 
-  // For testing: a function to simulate loading
-  // const simulateLoading = (id) => {
-  //   setLoadingVideoId(id);
-  //   // Automatically remove loading after 3 seconds
-  //   setTimeout(() => setLoadingVideoId(null), 3000);
-  // };
+  const setLoading = (id) => {
+    setLoadingVideoIds((prev) => [...prev, id]);
+  };
+
+  // useEffect(() => {
+  //   setLoading();
+  // }, []);
 
   return (
     <div className="flex flex-col gap-6 px-4 items-center mt-11 w-full h-fit">
       {/* Test button */}
       {/* <button
-        onClick={() => simulateLoading(projects[0].id)} // test first project
-        className="mb-4 p-2 bg-blue-500 text-white rounded z-90"
+        onClick={() => {
+          // For demo, manually add all project ids to loading
+          const allIds = projects.map((p) => p.id);
+          setLoadingVideoIds(allIds);
+
+          // Optional: clear loader after 5 seconds automatically
+          // setTimeout(() => {
+          //   setLoadingVideoIds([]);
+          // }, 5000);
+        }}
+        className="mb-4 p-2 bg-blue-500 text-white rounded z-2"
       >
-        Simulate Loading Spinner
+        Show Loading Spinner for All Videos (5 sec)
       </button> */}
 
       {projects.map((project, index) => {
@@ -57,7 +68,7 @@ const ProjectCardsMobile = () => {
                 {/* Project Video */}
                 <div className="w-full h-full rounded-3xl relative">
                   {/* Show loader on top while loading */}
-                  {loadingVideoId === project.id && (
+                  {loadingVideoIds.includes(project.id) && (
                     <div className="absolute inset-0 bg-black bg-opacity-40 z-5 rounded-3xl flex items-center justify-center">
                       <div className="loader border-4 border-t-4 border-gray-300 border-t-blue-500 rounded-full w-8 h-8 animate-spin"></div>
                     </div>
@@ -69,12 +80,28 @@ const ProjectCardsMobile = () => {
                     playsInline
                     src={project.video}
                     className="w-full h-full object-cover lg:object-contain rounded-3xl"
-                    onLoadStart={() =>
-                      setLoadingVideoId(project.id)
-                    }
-                    onLoadedData={() =>
-                      setLoadingVideoId(null)
-                    }
+                    onLoadStart={() => {
+                      console.log(
+                        `Video load started: ${
+                          project.id
+                        } ${Date.now()}`
+                      );
+                      setLoading(project.id);
+                    }}
+                    onCanPlay={() => {
+                      console.log(
+                        `Video can play: ${
+                          project.id
+                        } ${Date.now()}`
+                      );
+                      setTimeout(() => {
+                        setLoadingVideoIds((prev) =>
+                          prev.filter(
+                            (id) => id !== project.id
+                          )
+                        );
+                      }, 3000); // keep loader for 3 seconds after can play
+                    }}
                   />
                 </div>
 
