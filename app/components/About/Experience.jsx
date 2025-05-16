@@ -7,7 +7,7 @@ const Experience = ({
 }) => {
   return (
     <div
-      className="z-50 flex flex-col gap-12 justify-center pb-48 "
+      className=" flex flex-col gap-12 justify-center pb-48 "
       ref={experienceRef}
     >
       {/* Experience Title */}
