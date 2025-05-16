@@ -20,7 +20,7 @@ const ProjectCardsMobile = () => {
       {projects.map((project, index) => (
         <div
           key={project.id}
-          className={`relative  shrink-0 w-[85vw] h-[70vh] flex justify-center`}
+          className={`relative  shrink-0 w-[85vw] h-fit flex justify-center ${index === projects.length - 1 ? '' : 'mb-15'}`}
         >
           {/* Blob Animation as background */}
           {/* <div className="absolute inset-0 ">
