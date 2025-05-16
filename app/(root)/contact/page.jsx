@@ -51,14 +51,14 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="h-full relative"
+      className="h-full relative overflow-auto"
       initial={{ y: '-200vh' }}
       animate={{ y: '0%' }}
       transition={{ duration: 1 }}
     >
       <div className="z-80 h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* Text Container */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
+        <div className="h-[40%] lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
           <div className=''>
             {text.split('').map((letter, index) => (
               <motion.span
@@ -81,12 +81,12 @@ const Contact = () => {
         <form
           ref={formRef}
           onSubmit={sendEmail}
-          className="h-1/2 lg:h-full lg:w-1/2 rounded-3xl bg-gradient-to-b from-blue-50 to-pink-100 shadow-2xl text-xl flex flex-col gap-8 justify-center p-24 gradient-anim2"
+          className="h-[70%] p-6 lg:h-full lg:w-1/2 rounded-3xl bg-gradient-to-b from-blue-50 to-pink-100 shadow-2xl text-xl flex flex-col gap-8 justify-center lg:p-24 gradient-anim2"
         >
           <span>Dear Chaitanya,</span>
           <textarea
             rows={6}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            className=" bg-transparent border-b-2 border-b-black outline-none resize-none"
             name="user_message"
           />
           <span>My mail address is:</span>
@@ -96,7 +96,7 @@ const Contact = () => {
             className="bg-transparent border-b-2 border-b-black outline-none"
           />
           <span>Regards</span>
-          <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4 cursor-pointer">
+          <button className="bg-purple-200 rounded font-semibold text-gray-600 lg:p-4 cursor-pointer p-2 w-1/2 lg:w-full mx-auto">
             Send
           </button>
 

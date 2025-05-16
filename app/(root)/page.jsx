@@ -47,7 +47,7 @@ export default function Home() {
             </button>
             <button
               onClick={() => router.push('/contact')}
-              className="p-4 rounded-lg ring-1 ring-black cursor-pointer hover:scale-105 transition-all duration-200 "
+              className="p-4 rounded-lg ring-1 ring-white cursor-pointer hover:scale-105 transition-all duration-200 text-white"
             >
               Contact Me
             </button>

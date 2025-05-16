@@ -12,7 +12,7 @@ const Biography = () => {
       </h1>
 
       {/* Biography Desc */}
-      <p className="text-xl font-bold  bg-gradient-to-r from-black to-black bg-clip-text text-transparent ">
+      <p className="text-xl font-bold  bg-gradient-to-r lg:from-black lg:to-black from-white to-yellow-400 bg-clip-text text-transparent bg-black ">
         Hi, I’m Chaitanya, a passionate{' '}
         <span className="italic font-semibold">
           Full Stack Developer
